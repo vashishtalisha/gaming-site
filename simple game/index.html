@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="collabs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kTcAXBy/WWQ1tWh9lOC5P7nG+fb4VPQpAsbLfUBsv5ycXNuLTlf0bg7I5gIz5viK5VfS+e6ztJ4KQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.navbar img {
+    width: 70px;
+    height: 70px;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #207567;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+}
+.profile-icon {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #207567; /* Change the color to ensure visibility */
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+.profile-icon:hover {
+    background-color: #ddd;
+}
+
+.sec1 {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.sec1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sec1 h1 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+}
+.grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .grid-item h3 {
+            margin: 0;
+            padding: 20px;
+            font-size: 24px;
+            color: #207567;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+</style>
+<body>
+    <header class="navbar">
+        <img src="images/logo1.jpeg" alt="Logo">
+        <nav>
+            <a href="index.html">Home</a>
+            
+           
+            <a href="leaderboard.html">Leaderboard</a>
+            
+        </nav>
+        <a href="profile.html" class="profile-icon">
+            <i class="fas fa-user"></i>
+        </a>
+    </header>
+    <div class="sec1">
+        <img src="https://images.pexels.com/photos/1111597/pexels-photo-1111597.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+       
+    </div>
+    <section class="grid-container">
+        <div class="grid-item">
+            <a href="game3.html"><img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Grid Image 1"></a>
+            <h3>Match The Emoji</h3>
+        </div>
+        <div class="grid-item">
+           <a href="game2.html"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuiK2NTJMDZXmp-1jblSngtYuMKDW6qcKHWQ&s" alt="Grid Image 2"></a>
+            <h3>Rock,Paper,Scissors</h3>
+        </div>
+        <div class="grid-item">
+            <a href="game1.html"><img src="https://images.pexels.com/photos/355132/pexels-photo-355132.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Grid Image 3"></a>
+            <h3>Number Guessing Game</h3>
+        </div>
+        <div class="grid-item">
+           <a href="game.html"> <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Grid Image 4"></a>
+            <h3>Color Matching Game</h3>
+        </div>
+    </section>
+    </body>
+    </html>

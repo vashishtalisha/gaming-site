@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        color: #333;
+        background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+    }
+
+    #game-container {
+        margin: 50px auto;
+        width: 300px;
+    }
+
+    #guess-input {
+        width: 80px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 2px solid #207567;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    #submit-button {
+        background-color: #207567;
+        color: white;
+    }
+
+    #submit-button:hover {
+        background-color: #186a55;
+    }
+
+    #reset-button {
+        background-color: #ff5722;
+        color: white;
+    }
+
+    #reset-button:hover {
+        background-color: #e64a19;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <div id="game-container">
+        <h1>Number Guessing Game</h1>
+        <input type="number" id="guess-input" placeholder="Enter a number">
+        <button id="submit-button">Submit Guess</button>
+        <button id="reset-button">Reset Game</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        let targetNumber;
+        const guessInput = document.getElementById('guess-input');
+        const submitButton = document.getElementById('submit-button');
+        const resetButton = document.getElementById('reset-button');
+        const messageDisplay = document.getElementById('message');
+
+        function startGame() {
+            targetNumber = Math.floor(Math.random() * 100) + 1;
+            messageDisplay.innerText = 'Guess a number between 1 and 100';
+        }
+
+        function submitGuess() {
+            const userGuess = Number(guessInput.value);
+            if (userGuess === targetNumber) {
+                messageDisplay.innerText = 'Congratulations! You guessed the number!';
+            } else if (userGuess < targetNumber) {
+                messageDisplay.innerText = 'Too low! Try again.';
+            } else if (userGuess > targetNumber) {
+                messageDisplay.innerText = 'Too high! Try again.';
+            }
+        }
+
+        function resetGame() {
+            startGame();
+            guessInput.value = '';
+            messageDisplay.innerText = '';
+        }
+
+        submitButton.addEventListener('click', submitGuess);
+        resetButton.addEventListener('click', resetGame);
+
+        startGame(); // Initialize the game on page load
+    </script>
+</body>
+</html>

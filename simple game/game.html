@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Matching Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    #game-container {
+        margin: 50px auto;
+        width: 300px;
+    }
+
+    #game-board {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .color-button {
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .color-button:hover {
+        transform: scale(1.1);
+    }
+
+    #start-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        background-color: #207567;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #start-button:hover {
+        background-color: #186a55;
+    }
+
+    #score-display {
+        margin: 20px 0;
+        font-size: 24px;
+    }#reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    background-color: #207567;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#reset-button:hover {
+    background-color: #186a55;
+}
+
+</style>
+<body>
+    <div id="game-container">
+        <h1>Color Matching Game</h1>
+        <div id="score-display">Score: 0</div>
+        <button id="start-button">Start Game</button><button id="reset-button">Reset Game</button>
+        <div id="game-board">
+            <button class="color-button" style="background-color: red;"></button>
+            <button class="color-button" style="background-color: blue;"></button>
+            <button class="color-button" style="background-color: green;"></button>
+            <button class="color-button" style="background-color: yellow;"></button>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+let gameActive = false;
+let targetColor = '';
+
+const scoreDisplay = document.getElementById('score-display');
+const gameBoard = document.getElementById('game-board');
+const startButton = document.getElementById('start-button');
+const resetButton = document.getElementById('reset-button');
+const colorButtons = document.querySelectorAll('.color-button');
+
+function startGame() {
+    if (!gameActive) {
+        gameActive = true;
+        score = 0;
+        updateScore();
+        targetColor = generateRandomColor();
+        document.body.style.backgroundColor = targetColor;
+    }
+}
+
+function resetGame() {
+    gameActive = false;
+    score = 0;
+    updateScore();
+    document.body.style.backgroundColor = '#f0f0f0'; // Reset to default background color
+}
+
+function generateRandomColor() {
+    const colors = ['red', 'blue', 'green', 'yellow'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function updateScore() {
+    scoreDisplay.innerText = `Score: ${score}`;
+}
+
+colorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (gameActive && button.style.backgroundColor === targetColor) {
+            score++;
+            updateScore();
+            targetColor = generateRandomColor();
+            document.body.style.backgroundColor = targetColor;
+        }
+    });
+});
+
+startButton.addEventListener('click', startGame);
+resetButton.addEventListener('click', resetGame);
+
+    </script>
+</body>
+</html>
